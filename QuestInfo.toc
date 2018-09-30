@@ -1,0 +1,7 @@
+## Interface: 80000
+## Title: QuestInfo
+## Version: v1.0
+## Notes: Get metadata for a given questId
+## SavedVariables: QuestInfo
+
+QuestInfo.lua
