@@ -67,7 +67,23 @@ helpers.howToUse = function ()
     helpers.writeToChat('/quest 41368 link')
 end
 
-local wowheadUrl = 'https://www.wowhead.com/quest='
+local wowheadUrl = 'https://www.wowhead.com/'
+local wowheadQuestUrl = wowheadUrl .. 'quest='
+local wowheadAchievementUrl = wowheadUrl .. 'achievement='
+
+local function HandleQuestLink(questId)
+    if helpers.questComplete(questId) then
+        helpers.writeToChat("QuestId: " .. questId .. " has been completed")
+    else 
+        helpers.writeToChat("QuestId: " .. questId .. " has NOT been completed")
+    end
+
+    helpers.renderEditBox(wowheadQuestUrl..questId)
+end
+
+local function HandleAchievementLink(achievementId)
+    helpers.renderEditBox(wowheadAchievementUrl..achievementId)
+end
 
 local function QuestInfo(msg, editbox)
     local _, _, cmd, flag = string.find(msg, "%s?(%w+)%s?(.*)")
@@ -76,19 +92,21 @@ local function QuestInfo(msg, editbox)
         flag = flag:lower()
     end
 
+    --Handles quest links
     QuestId = tonumber(string.match(msg, 'quest:(%d+):'))
     if helpers.isNumber(QuestId) then
-        if helpers.questComplete(QuestId) then
-            helpers.writeToChat("QuestId: " .. QuestId .. " has been completed")
-        else 
-            helpers.writeToChat("QuestId: " .. QuestId .. " has NOT been completed")
-        end
+        HandleQuestLink(QuestId)
+        return
+    end
 
-        helpers.renderEditBox(wowheadUrl..QuestId)
-
+    --Handles achievement links
+    AchievementId = tonumber(string.match(msg, 'achievement:(%d+):'))
+    if helpers.isNumber(AchievementId) then
+        HandleAchievementLink(AchievementId)
         return
     end
     
+    --Handles normal text input
     if helpers.isEmpty(cmd) then
         helpers.howToUse()
     elseif cmd == 'help' then
@@ -108,13 +126,11 @@ local function QuestInfo(msg, editbox)
         helpers.writeToChat(questLink)
         
         if flag == 'link' then
-            helpers.renderEditBox(wowheadUrl..QuestId)
+            helpers.renderEditBox(wowheadQuestUrl..QuestId)
         end
 
     end
 end
-
-
 
 SLASH_QUEST1, SLASH_QUEST2 = '/quest', '/questinfo';
 SlashCmdList["QUEST"] = QuestInfo
