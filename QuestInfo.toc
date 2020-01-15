@@ -1,6 +1,6 @@
-## Interface: 80200
+## Interface: 80300
 ## Title: QuestInfo
-## Version: v8.2.0
+## Version: v8.3.0
 ## Notes: Get metadata for a given questId
 ## SavedVariables: QuestInfo
 
