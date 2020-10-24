@@ -14,21 +14,21 @@ end
 
 helpers.questComplete = function(questId)
     local parsed = tonumber(questId)
-    return IsQuestFlaggedCompleted(parsed)
+    return C_QuestLog.IsQuestFlaggedCompleted(parsed)
 end
 
 helpers.renderEditBox = function(text)
 
-    local f = CreateFrame("Frame", nil, UIParent)
+    local f = CreateFrame("Frame", nil, UIParent, BackdropTemplateMixin and "BackdropTemplate")
     f:SetPoint("CENTER")
-    f:SetSize(340, 40)
+    f:SetSize(340, 60)
     f:SetFrameStrata("DIALOG")
     f:SetClipsChildren(true)
     f:SetBackdrop({
         bgFile = "Interface\\DialogFrame\\UI-DialogBox-Background",
         edgeFile = "Interface\\PVPFrame\\UI-Character-PVP-Highlight", -- this one is neat
         edgeSize = 16,
-        insets = { left = 8, right = 6, top = 8, bottom = 8 },
+        insets = { left = 5, right = 5, top = 5, bottom = 5 },
     })
     f:SetBackdropBorderColor(0, .44, .87, 0.5) -- darkblue
 
