@@ -1,6 +1,6 @@
-## Interface: 90100
+## Interface: 90105
 ## Title: QuestInfo
-## Version: v9.1.0
+## Version: v9.1.5
 ## Notes: Get metadata for a given questId
 ## SavedVariables: QuestInfo
 
