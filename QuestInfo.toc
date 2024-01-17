@@ -1,6 +1,6 @@
-## Interface: 100200
+## Interface: 100205
 ## Title: QuestInfo
-## Version: v10.2.0
+## Version: v10.2.5
 ## Notes: Get metadata for a given questId
 ## SavedVariables: QuestInfo
 
