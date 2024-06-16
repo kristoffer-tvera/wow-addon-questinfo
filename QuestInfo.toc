@@ -1,4 +1,4 @@
-## Interface: 100206
+## Interface: 100207, 110000
 ## Title: QuestInfo
 ## Version: v10.2.6
 ## Notes: Get metadata for a given questId
