@@ -1,5 +1,5 @@
-## Interface: 110205, 110207, 120000, 120001
-## Version: v12.0.1
+## Interface: 110205, 110207, 120000, 120001, 120005
+## Version: v12.0.5
 ## Title: QuestInfo
 ## Notes: Get metadata for a given questId
 ## SavedVariables: QuestInfo
